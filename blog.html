@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Altunbey Sürücü Kursu — Sultangazi İstanbul</title>
+<meta name="description" content="Ehliyet süreci, direksiyon sınavı ipuçları ve sınav kaygısı üzerine uzman içerikler. Altunbey Sürücü Kursu blog sayfası.">
+<link rel="canonical" href="https://altunbeysurucukursu.com.tr/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0F1F3D;--navy2:#1B2B4B;--navy3:#2E4A8F;
+  --gold:#C9A84C;--gold2:#E8C97A;--gold3:#F5DFA0;
+  --white:#FFFFFF;--g50:#F8F9FB;--g100:#F0F2F7;--g200:#DDE1EC;
+  --g400:#8E97AB;--g600:#505A70;--g800:#232B3E;
+  --ease:.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--g800);background:var(--g50);line-height:1.6}
+
+/* NAV — blog sayfalarında hep koyu */
+#nav{position:fixed;inset:0 0 auto;z-index:999;background:rgba(15,31,61,.97);box-shadow:0 2px 24px rgba(0,0,0,.25)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:80px}
+.logo img{height:58px;width:auto;display:block}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.03em;transition:color var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active{color:var(--gold2)}
+.nav-btn{background:var(--gold);color:var(--navy);padding:.6rem 1.5rem;border-radius:6px;font-weight:700;font-size:.88rem;text-decoration:none;letter-spacing:.02em;transition:all var(--ease)}
+.nav-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:#fff;border-radius:2px}
+.mob{display:none;position:fixed;inset:80px 0 0;background:rgba(10,18,35,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:3rem}
+.mob.open{display:flex}
+.mob a{color:#fff;font-size:1.5rem;font-weight:600;text-decoration:none}
+
+/* HERO BAND */
+.blog-hero{background:var(--navy);padding:10rem 2rem 5rem;text-align:center}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);background:rgba(201,168,76,.12);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.1rem}
+.blog-hero h1{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.15}
+.blog-hero p{color:rgba(255,255,255,.65);max-width:560px;margin:1rem auto 0;font-size:1rem;line-height:1.8}
+
+/* GRID */
+.wrap{max-width:1280px;margin:0 auto;padding:4rem 2rem 6rem}
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem}
+.post-card{background:#fff;border:1px solid var(--g200);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all var(--ease)}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(15,31,61,.12);border-color:var(--gold)}
+.post-top{height:8px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.post-body{padding:2rem;display:flex;flex-direction:column;flex:1}
+.post-cat{display:inline-block;align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy3);background:rgba(46,74,143,.08);padding:.3rem .9rem;border-radius:100px;margin-bottom:1rem}
+.post-body h2{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;line-height:1.35;color:var(--navy2);margin-bottom:.7rem}
+.post-body p{font-size:.9rem;color:var(--g600);line-height:1.75;flex:1}
+.post-meta{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--g100)}
+.post-date{font-size:.78rem;color:var(--g400);font-weight:500}
+.post-read{font-size:.82rem;font-weight:700;color:var(--gold);letter-spacing:.02em}
+
+/* FOOTER */
+footer{background:var(--navy);text-align:center;padding:2.5rem 2rem;color:rgba(255,255,255,.4);font-size:.85rem}
+footer a{color:rgba(255,255,255,.4)}
+
+/* WA FLOAT */
+.wa{position:fixed;bottom:1.8rem;right:1.8rem;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:900;transition:transform var(--ease)}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .blog-hero{padding:8rem 1.5rem 3.5rem}
+  .wrap{padding:3rem 1.5rem 5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Altunbey Sürücü Kursu"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">Hakkımızda</a></li>
+      <li><a href="index.html#programs">Programlarımız</a></li>
+      <li><a href="index.html#services">Hizmetler</a></li>
+      <li><a href="index.html#reviews">Yorumlar</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">İletişim</a></li>
+    </ul>
+    <a class="nav-btn" href="https://wa.me/905538283744?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank">Ücretsiz Bilgi Al</a>
+    <div class="burger" onclick="togMob()" aria-label="Menü"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="mob" id="mob">
+  <a href="index.html#about">Hakkımızda</a>
+  <a href="index.html#programs">Programlarımız</a>
+  <a href="index.html#services">Hizmetler</a>
+  <a href="index.html#reviews">Yorumlar</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact">İletişim</a>
+  <a href="https://wa.me/905538283744" target="_blank" style="color:var(--gold)">WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <span class="eyebrow">Blog</span>
+  <h1>Ehliyet yolculuğunuzda<br>size rehberlik ediyoruz</h1>
+  <p>Sınav ipuçları, ehliyet süreci ve sınav kaygısıyla başa çıkma üzerine uzman ekibimizden içerikler.</p>
+</div>
+
+<!-- YAZILAR -->
+<div class="wrap">
+  <div class="post-grid" id="postGrid">
+
+    <!-- YENİ YAZI EKLERKEN: Bu kartı kopyalayıp en üste yapıştırın, linki ve metinleri güncelleyin -->
+    <a class="post-card" href="blog/sinav-kaygisi-nasil-yenilir.html">
+      <div class="post-top"></div>
+      <div class="post-body">
+        <span class="post-cat">Sınav Kaygısı</span>
+        <h2>Direksiyon Sınavı Kaygısı Nasıl Yenilir? Uzman Yaklaşımıyla 7 Etkili Yöntem</h2>
+        <p>Direksiyon sınavında başarısızlığın en büyük nedeni teknik eksiklik değil, kontrol edilemeyen strestir. Kaygıyı yönetmenin bilimsel yollarını ve Türkiye'de bir ilk olan psikolojik destek programımızı anlatıyoruz.</p>
+        <div class="post-meta">
+          <span class="post-date">15 Temmuz 2026</span>
+          <span class="post-read">Yazıyı Oku →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,.7)">Altunbey Sürücü Kursu</strong> — Sultangazi, İstanbul &nbsp;|&nbsp; <a href="tel:02125943744">0212 594 37 44</a></p>
+  <p style="margin-top:.35rem;font-size:.76rem">Tüm hakları saklıdır.</p>
+</footer>
+
+<a class="wa" href="https://wa.me/905538283744?text=Merhaba%2C%20kurs%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function togMob(){document.getElementById('mob').classList.toggle('open');}
+</script>
+</body>
+</html>
